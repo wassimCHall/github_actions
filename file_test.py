@@ -1,13 +1,18 @@
 
 
 def test_addition():
-    assert 1 + 1 == 2
+    assert 2 + 4 == 6
 
 
 def test_subtraction():
-    assert 5 - 3 == 2
+    assert 2 - 4 == -2
 
 
 def test_multiplication():
-    assert 3 * 4 == 12
+    assert 2 * 4 == 8
+
+
+def test_coucou():
+    output = "hello"
+    assert output == "hello"
 
