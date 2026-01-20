@@ -1,26 +1,13 @@
-import pytest
 
 
-def test_calc_addition():
-    output = 2+4
-    assert output == 6
+def test_addition():
+    assert 1 + 1 == 2
 
 
-def test_calc_subtraction():
-    # Fonction test du résultat de 2-4
-    output = 2-4
-    assert output == -2
+def test_subtraction():
+    assert 5 - 3 == 2
 
 
-def test_calc_multiply():
-    # Fonction test du résultat de 2*4
-    output = 2*4
-    assert output == 8
-
-
-def test_string_value():
-    # Fonction test si la résultat renvoie 'hello'
-    output = "hello"
-    assert output == "hello"
-
+def test_multiplication():
+    assert 3 * 4 == 12
 
