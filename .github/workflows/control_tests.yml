@@ -1,0 +1,43 @@
+name: Pytest & flake8 CI Pipeline
+on: push
+
+# Variables d'environnement GLOBAL workflow
+env:
+  APP_ENV: ci
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  qa:
+    name: Run tests & quality checks
+    runs-on: ubuntu-24.04
+
+    # Variables d'environnement du JOB
+    env:
+      STAGE: testing
+
+    steps:
+      - name: Checkout on master
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@master
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies pytest and flake8
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest flake8
+
+      - name: Run tests
+        env:
+          TEST_LEVEL: unit   # Variable d'environnement STEP
+        run: |
+          echo "Environment: $APP_ENV"
+          echo "Stage: $STAGE"
+          echo "Test level: $TEST_LEVEL"
+          pytest
+
+      - name: Run flake8
+        run: |
+          flake8 .
